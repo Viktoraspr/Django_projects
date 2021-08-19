@@ -1,0 +1,28 @@
+{% extends 'orders/base.html' %}
+{% block title %} Scaffoldings {% endblock %}
+
+{% block content %}
+<h1> Scaffoldings </h1>
+
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Height</th>
+            <th>Width</th>
+            <th>Lenght</th>
+            <th>Volume</th>
+        </tr>
+    </thead>
+    {% for scaffolding in object_list%}
+    <tbody>
+        <tr>
+            <th>{{ scaffolding.height }}</th>
+            <th>{{ scaffolding.width }}</th>
+            <th>{{ scaffolding.lenght }}</th>
+            <th>{{ scaffolding.volume }}</th>
+        </tr>
+    </tbody>
+    {% endfor %}
+
+</table>
+{% endblock %}

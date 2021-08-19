@@ -1,0 +1,48 @@
+{% extends 'staff/base.html' %}
+
+
+{% block content %}
+    
+    <h3>Projektų sąrašas</h3>
+
+    <form action="{% url 'staff:projects_list' %}" method="get">
+    <input name="q" type="text" placeholder="Ieškome...">
+    </form>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Kodas</th>
+                <th>Projektas</th>
+                <th>Šalis</th>
+                <th>Pradžia</th>
+                <th>Pabaiga</th>
+                <th>Projektas sukurtas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+                <tr>
+                    <td>{{ project.project_number }}</td>
+                    <td>
+                       <a href="{% url 'staff:project_detail' project.id %}"  > {{ project.name}} </a>
+                    </td>
+                    <td>{{ project.country }}</td>
+                    {% if project.started == None %}
+                        <td> </td>
+                    {% else %}
+                        <td>{{ project.started }}</td>
+                    {% endif %}
+                    {% if project.finished == None %}
+                        <td> </td>
+                    {% else %}
+                        <td>{{ project.finished }}</td>
+                    {% endif %}
+
+                    <td>{{ project.created }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

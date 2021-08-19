@@ -1,0 +1,25 @@
+{% extends 'staff/base.html' %}
+
+
+{% block content %}
+
+<h4> {{project_date.project}}, {{project_date.year_month}} </h4>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card card-body">
+
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ formset.management_form}}
+                {% for form in formset %}
+                    {{ form.as_ul }}
+                    <hr>
+                {% endfor %}
+                <input type="submit" value="Tvirtinti">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

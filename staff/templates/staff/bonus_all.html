@@ -1,0 +1,47 @@
+{% extends 'staff/base.html' %}
+
+{% block content %}
+
+<div class="col-md-7" >
+    <h4>Projektas: Nr. {{project_date.project.project_number}}, {{project_date.project.name}}</h4>
+    <h5>Laikotarpis {{project_date.year_month}}</h5>
+    
+    <a class="btn btn-primary"
+    href="{% url 'staff:bonuses' pk=project_date.id action='all'%}" 
+    role="button">Viso</a>
+    <a class="btn btn-secondary" 
+    href="{% url 'staff:bonuses' pk=project_date.id action='details'%}"
+    role="button">Detaliau</a>
+    <a class="btn btn-secondary" 
+    href="{% url 'staff:bonuses' pk=project_date.id action='edit'%}"
+    role="button">Redaguoti</a>
+
+    <a class="btn btn-dark" 
+    href="{% url "staff:add_employee" pk=project_date.id %}"
+    role="button">Naujas darbuotojas</a>
+    </div>
+
+    <div class="card card-body" style="width:85%">
+        
+        <table class="table table-sm">
+            <tr>
+                <th></th>
+                <th></th> 
+                <th>Darbuotojas</th>
+                <th>Priedas</th>
+            </tr>
+            {% for bonus in bonuses %}
+                <tr>
+                    {% include "staff/button_update_detele.html" %}
+                    <td> {{bonus.employee}} </td>
+                    <td> {{bonus.suma}} </td>
+                </tr>
+             
+            {% endfor %}
+        </table>
+
+
+</div>
+
+
+{% endblock %}

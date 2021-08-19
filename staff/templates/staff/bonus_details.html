@@ -1,0 +1,84 @@
+{% extends 'staff/base.html' %}
+
+{% block content %}
+
+<style>
+th {
+  background-color:tomato;
+  border: 2px solid powderblue;
+  padding: 30px;
+  font-size:80%;
+  text-align:center;
+}
+
+td {
+  background-color:tomato;
+  border: 2px solid powderblue;
+  padding: 30px;
+  font-size:80%;
+  text-align:center;
+}
+
+</style>
+
+<div class="col-md-7">
+    <h4>Projektas: Nr. {{project_date.project.project_number}}, {{project_date.project.name}}</h4>
+    <h5>Laikotarpis {{project_date.year_month}}</h5>
+    <a class="btn btn-secondary"
+    href="{% url 'staff:bonuses' pk=project_date.id action='all'%}" 
+    role="button">Viso</a>
+    <a class="btn btn-primary" 
+    href="{% url 'staff:bonuses' pk=project_date.id action='details'%}"
+    role="button">Detaliau</a>
+    <a class="btn btn-secondary" 
+    href="{% url 'staff:bonuses' pk=project_date.id action='edit'%}"
+    role="button">Redaguoti</a>
+    <a class="btn btn-dark" 
+
+    <a class="btn btn-dark" 
+    href="{% url "staff:add_employee" pk=project_date.id %}"
+    role="button">Naujas darbuotojas</a>
+        
+    <table class="table table-sm" style="width:85%" >
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Darbuotojas</th>
+            <th>Valandos</th>
+            <th>Priedas geras darbas</th>
+            <th>Apmokymas</th>
+            <th>Kelionė Lietuvoje</th>
+            <th>Kelionė užsienyje</th>
+            <th>Koordinatoriaus priedas</th>
+            <th>>12 savaičių</th>
+            <th>Klaida algalapyje</th>
+            <th>Naujas darbuotojas</th>
+            <th>Kita</th>
+            <th>Viso</th>
+        </tr>
+        {% for bonus in bonuses %}
+            <tr>
+                {% include "staff/button_update_detele.html" %}    
+                <td> {{bonus.employee}} </td>
+                <td>{{ bonus.hours }}</td>
+                <td>{{ bonus.priedas_geras_darbas }}</td>
+                <td>{{ bonus.apmokymas }}</td>
+                <td>{{ bonus.kelione_Lietuva }}</td>
+                <td>{{ bonus.kelione_uzsienis }}</td>
+                <td>{{ bonus.koordinatoriaus_priedas }}</td>
+                <td>{{ bonus.daugiau_nei_12_savaiciu }}</td>
+                <td>{{ bonus.klaida_algalapyje }}</td>
+                <td>{{ bonus.naujas_darbuotojas }}</td>
+                <td>{{ bonus.kita }}</td>
+                <td>{{ bonus.suma }}</td>
+            </tr>
+            
+        {% endfor %}
+    </table>
+
+</div>
+
+
+{% endblock %}
+
+<div class='row'>

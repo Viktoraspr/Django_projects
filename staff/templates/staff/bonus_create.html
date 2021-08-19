@@ -1,0 +1,54 @@
+{% extends 'staff/base.html' %}
+
+{% block content %}
+
+<h3> Ivedimo forma </h3>
+
+<form action="{% url 'staff:bonusescreate' %}" method="post">
+    {% csrf_token %}
+    {{ form.name_of_field }}
+    <table class="table table-bordered table-hover" style="width:70%">
+        <thead>
+            <tr>               
+                <th>Darbuotojas</th>
+                <th>Geras darbas</th>
+                <th>Lauko priedas</th>
+                <th>Apmokymas</th>
+                <th>Vairavimas į vieną pusę dviese</th>
+                <th>Vairavimas į vieną pusę vienas</th>
+                <th>Vairavimas Lietuvoje</th>
+                <th>Važiavimas Lietuvoje</th>
+                <th>Stažas</th>
+                <th>Koordinatoriaus priedas</th>
+                <th>Daugiau nei 12 savaičių</th>
+                <th>Klaida algalapyje</th>
+                <th>Naujas darbuotojas</th>
+                <th>Kita</th>
+            </tr>
+        </thead>
+        {% for employee in employees %}
+        <tbody>
+                <tr>
+                    <td>{{ employee.employee }}</td>
+                    <td>{{ form.priedas_geras_darbas }}</td>
+                    <td>{{ form.lauko_priedas }}</td>
+                    <td>{{ form.apmokymas }}</td> 
+                    <td>{{ form.vair_i_viena_puse_dviese }}</td>
+                    <td>{{ form.vair_i_viena_puse_vienas }}</td>
+                    <td>{{ form.vair_lietuvoje }}</td>
+                    <td>{{ form.vaziavimas_lietuvoje }}</td>
+                    <td>{{ form.stazas }}</td>
+                    <td>{{ form.koordinatoriaus_priedas }}</td>
+                    <td>{{ form.daugiau_nei_12_savaiciu }}</td>
+                    <td>{{ form.klaida_algalapyje }}</td>
+                    <td>{{ form.naujas_darbuotojas }}</td>
+                    <td>{{ form.kita }}</td>
+                </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <input type="submit" value="Tvirtinti">
+</form>
+
+
+{% endblock %}

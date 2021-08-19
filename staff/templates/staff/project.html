@@ -1,0 +1,26 @@
+{% extends 'staff/base.html' %}
+
+{% block content %}
+    <h3> {{project.name}} </h3>
+    <table class="table table-bordered table-hover">
+    <thead>
+            <tr>
+                <th> Mėnuo </th>
+                <th> Tarifas Eur/val </th>
+            </tr>
+            {% for pr in project_date %}
+            <tr>
+                <th><a class="btn btn-primary" 
+                    href="{% url 'staff:bonuses' pk=pr.id action='all' %}"
+                    role="button">{{pr.year_month}}</a></th>
+                <td>
+                    <a href="{% url "staff:project_tarrif" id=pr.id %}"  > {{pr.tarrif}} </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </thead>
+
+    </table>
+
+
+{% endblock %}

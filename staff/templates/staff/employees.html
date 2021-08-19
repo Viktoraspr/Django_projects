@@ -1,0 +1,36 @@
+{% extends 'staff/base.html' %}
+
+{% block content %}
+
+    <h3>Darbuotojų sąrašas</h3>
+
+    <p1><i> Paspauskite ant tabelio.</i></p1>
+
+    <form action="{% url 'staff:employee_list' %}" method="get">
+        <input name="q" type="text" placeholder="Ieškome...">
+    </form>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>               
+                <th>Vardas</th>
+                <th>Pavardė</th>
+                <th>Tabelio numeris</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+                <tr>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.surname }}</td>
+                    <td>
+                       <a href="{% url 'staff:employee_detail' pk=employee.id %}"  > {{ employee.tabelis}} </a>
+                    </td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock  %}
+

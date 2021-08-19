@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Hotrema {% endblock %}
+
+{% block content %}
+
+    <h3> Prašau prisijungti </h3>
+    <p>Login: Hotrema; Password: ibibef25_</p>
+
+    {% if form.errors %}
+    <p> Neteisingi prisijungimo duomenys... </p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <p> User name: {{form.username}} </p>
+        <p> Password: {{form.password}} </p>
+
+        <input type='submit' value="login">
+        <input type='hidden' name="next" value="{{next}}">
+
+    </form>
+
+
+{% endblock  %}

@@ -1,0 +1,19 @@
+https://www.youtube.com/watch?v=Y4ieyOCC3gU
+https://www.dennisivy.com/post/django-class-based-views/
+https://django.readthedocs.io/en/stable/topics/class-based-views/generic-display.html
+
+https://stackoverflow.com/questions/2575737/django-url-tag-multiple-parameters
+https://www.dev2qa.com/how-to-pass-multiple-parameters-via-url-in-django/
+
+custom forms:
+https://www.youtube.com/watch?v=MRWFg30FmZQ
+
+create and update data:
+https://www.youtube.com/watch?v=EX6Tt-ZW0so
+
+rinkinys:
+https://www.youtube.com/watch?v=83sNNNWNU6w&list=RDCMUCTZRcDjjkVajGL6wd76UnGg&index=1
+
+deploy azure:
+https://docs.microsoft.com/en-us/azure/postgresql/flexible-server/tutorial-django-app-service-postgres?tabs=clone
+https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=cmd&pivots=python-framework-django

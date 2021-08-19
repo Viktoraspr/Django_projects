@@ -1,0 +1,30 @@
+{% extends 'orders/base.html' %}
+
+{% block content %}
+    
+    <h3>Klientų sąrašas</h3>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Companie's code</th>
+                <th>Representative</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in object_list %}
+                <tr>
+                    <td>
+                       <a href="{% url 'scaffolding:customer_detail' customer.id %}"  > {{ customer.customer}} </a>
+                    </td>
+                    <td>{{ customer.company_code }}</td>
+                    <td>{{ customer.representative }}</td>
+                    <td>{{ customer.country }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

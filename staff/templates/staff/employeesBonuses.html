@@ -1,0 +1,35 @@
+{% extends 'staff/base.html' %}
+
+{% block content %}
+
+    <h3> Priedai prie darbo užmokesčio </h3>
+
+    <p> Duomenys bus atsinaujantis kai bus aišku kokia bus duomenų bazė - per trigerius formuosime naują lentelę. </p>
+    <p> Iš lentelės bus imami duomenis. Šiandien yra tik pavyzdinė lentelė kaip atrodys.</p>
+
+   <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Mėnuo</th>               
+                <th>Vardas</th>
+                <th>Pavardė</th>
+                <th>Tabelio numeris</th>
+                <th>Viso projekta</th>
+                <th>Viso Finansai</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <th>2021-8</th>     
+                    <th>Jonas</th>
+                    <th>Jonaitis</th>
+                    <th>1235</th>
+                    <th>120</th>
+                    <th>180</th>
+                    
+                </tr>
+        </tbody>
+    </table>
+
+
+{% endblock  %}

@@ -1,0 +1,31 @@
+{% extends 'staff/base.html' %}
+
+
+{% block content %}
+
+    <h4> {{employee.name}} {{employee.surname}}</h4>
+    <table class="table table-bordered table-hover">
+    <thead>
+            <tr>
+                <th> Mėnuo </th>
+                <th> Viso </th>
+                <th> Laukas1 </th>
+                <th> Laukas2 </th>
+                <th>  </th>
+            </tr>
+            {% for emp in employee_months %}
+            <tr>
+            <th> {{emp.year_month}} </th>
+            <th> {{emp.viso}} </th>
+            <th> {{emp.laukas1}} </th>
+            <th> {{emp.laukas2}} </th>
+            <th><a class="btn btn-primary" 
+                    href="{% url 'staff:employee_bonus_edit' pk=emp.id %}"
+                    role="button">Redaguoti</a></th>
+            </tr>
+            {% endfor %}
+        </thead>
+
+    </table>
+
+{% endblock %}

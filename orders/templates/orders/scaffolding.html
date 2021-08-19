@@ -1,0 +1,12 @@
+{% extends 'orders/base.html' %}
+{% block title %} Pastoliai {% endblock %}
+
+{% block content %}
+<h3> {{ls.height}} </h3> 
+<h3> {{ls.volume}} </h3>
+<ul>
+    {% for item in ls.order_set.all %}
+    <li> {{ item.order }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

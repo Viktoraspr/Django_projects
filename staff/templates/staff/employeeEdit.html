@@ -1,0 +1,21 @@
+{% extends 'staff/base.html' %}
+
+{% block content %}
+
+    <h4> {{employee.name}} {{employee.surname}}</h4>
+    <h3> Bonusų suvedimas </h3>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card card-body">
+
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_ul }}
+                    <input type="submit" value="Tvirtinti">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock  %}

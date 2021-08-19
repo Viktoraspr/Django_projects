@@ -1,0 +1,57 @@
+{% extends 'staff/base.html' %}
+
+{% block content %}
+
+<h4>Projektas: Nr. {{project_date.project.project_number}}, {{project_date.project.name}}</h4> 
+<h5>Laikotarpis {{project_date.year_month}}</h5>
+
+<a class="btn btn-secondary"
+href="{% url 'staff:bonuses' pk=project_date.id action='all'%}" 
+role="button">Viso</a>
+<a class="btn btn-secondary" 
+href="{% url 'staff:bonuses' pk=project_date.id action='details'%}"
+role="button">Detaliau</a>
+<a class="btn btn-primary" 
+href="{% url 'staff:bonuses' pk=project_date.id action='edit'%}"
+role="button">Redaguoti</a>
+
+<style>
+th {
+  background-color:tomato;
+  border: 2px solid powderblue;
+  padding: 30px;
+  font-size:80%;
+}
+</style>
+
+<table class="table table-sm" style="font-size:80%; background-color:powderblue; text-align:center;">
+            <tr>
+                <th>Darbuotojas</th>
+                <th>Valandos</th>
+                <th>Geras darbas</th>
+                <th>Apmokymas</th>
+                <th>Kelionė Lietuvoje</th>
+                <th>Kelionė užsienis</th>
+                <th>Koorinatoriaus priedas</th>
+                <th>> 12 savaičių</th>
+                <th>Klaida algalapyje</th>
+                <th>Naujas darbuotojas</th>
+                <th>Kita</th>
+            </tr>
+            <form method="post">
+                {% csrf_token %}
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    <tr>
+                        {% for field in form %}
+                            <td> {{ field }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}    
+                <input type="submit" value="Tvirtinti">
+            </form>
+</table>
+
+
+
+{% endblock  %}

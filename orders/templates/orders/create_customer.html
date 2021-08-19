@@ -1,0 +1,18 @@
+{% extends "orders/base.html" %}
+{% block title %} Create new customer {% endblock %}
+
+
+
+{% block content %}
+<h3>Naujas pirkėjas</h3>
+<form method="post" action='/scaffolding/create/' class="form-group">
+    {% csrf_token %}
+    <div class='input-group mn-3'>
+        <div class="input-group-prepend">
+            {{form.as_p}}
+            <button type='submit' , name='save' class="btn btn-success"> Create </button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

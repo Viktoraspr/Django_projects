@@ -1,0 +1,28 @@
+{% extends 'orders/base.html' %}
+{% block title %} Customer's projects {% endblock %}
+
+{% block content %}
+<h1> {{customer.customer}} </h1>
+<form method="post" action="#">
+    {% csrf_token %}
+
+    {% for order in customer.order_set.all %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class='input-group-text'>
+                {% if order.active == True %}
+                <input type="checkbox" , value="clicked" , name="c{{order.id}}" checked>
+                {% else %}
+                <input type="checkbox" , value="clicked" , name="c{{order.id}}">
+                {% endif %}
+            </div>
+        </div>
+        <input type="text" , value="{{order.order}}" class="form-control">
+    </div>
+    {% endfor %}
+
+    <button type='submit' , name='save' , value='save'>Save</button>>
+    <input type="text" , name='new'>
+    <button type='submit' , name='newOrder' , value='newOrder'>Add order</button>>
+</form>
+{% endblock %}
