@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'hotremapriedai'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_96949264A6674AD59822008EBB412E01 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DD4959E9EC65444D95BB875509CDE9D0 }}
